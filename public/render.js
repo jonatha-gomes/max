@@ -42,7 +42,7 @@ document.getElementById("footer-title").textContent = NOME_DO_PROJETO;
 
 document.getElementById("footer-cnpj").textContent = CNPJ;
 
-let RENDER_ENDERECO = "<strong>Endereço:</strong> ";
+let RENDER_ENDERECO = "<strong>Address:</strong> ";
 
 ENDERECO.split("\n").forEach((line) => {
   RENDER_ENDERECO += `<br>${line}`;
@@ -77,7 +77,7 @@ const year = new Date().getFullYear();
 
 document.getElementById(
   "all-rights-reserved"
-).textContent = `© ${year} ${NOME_DO_PROJETO}. Todos os direitos reservados.`;
+).textContent = `© ${year} ${NOME_DO_PROJETO}. All rights reserved.`;
 
 document.getElementById("help-text").textContent = COMO_AJUDAR;
 
@@ -164,7 +164,7 @@ COMENTARIOS.forEach((comment) => {
       <span>Ver tradução</span>
     </div>
     <div class="comentario-respostas-toggle">
-      <span class="toggle-btn">—&nbsp;&nbsp;Ver respostas (${comment.replies.length})</span>
+      <span class="toggle-btn">—&nbsp;&nbsp;Show Replies (${comment.replies.length})</span>
       <span class="loader"></span>
     </div>
     <div class="comentario-respostas-conteudo">
