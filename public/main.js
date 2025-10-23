@@ -34,7 +34,7 @@ document.querySelectorAll('.comentario-respostas-toggle').forEach(toggle => {
                 
                 // Mudar o texto do botão
                 const numRespostas = toggleBtn.textContent.match(/\d+/)[0];
-                toggleBtn.textContent = `Ocultar respostas (${numRespostas})`;
+                toggleBtn.textContent = `Hide Replies (${numRespostas})`;
             }, 700); // 700ms de "carregamento"
         } else {
             // Ocultar respostas
@@ -42,7 +42,7 @@ document.querySelectorAll('.comentario-respostas-toggle').forEach(toggle => {
             
             // Mudar o texto do botão de volta
             const numRespostas = toggleBtn.textContent.match(/\d+/)[0];
-            toggleBtn.textContent = `Ver respostas (${numRespostas})`;
+            toggleBtn.textContent = `Show Replies (${numRespostas})`;
         }
     });
 });
